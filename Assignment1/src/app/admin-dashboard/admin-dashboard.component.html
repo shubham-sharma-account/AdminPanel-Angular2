@@ -1,0 +1,28 @@
+<button type="button" class="btn btn-primary logoutBtn mt-2 px-3 py-2" (click)="logout()">Logout</button>
+<div class="container">
+  <div class="row">
+    <div class="col-sm bg-dark m-3 p-3">
+      <a routerLink="/admin-dashboard/user-list">
+        <div>
+          <h2>Total Users</h2>
+          <button type="button" class="btn btn-success">
+            <h2>{{totalUser}}</h2>
+          </button>
+        </div>
+      </a>
+    </div>
+    <div class="col-sm bg-dark m-3 p-3">
+      <h2>Active Users</h2>
+      <button type="button" class="btn btn-success">
+        <h2>{{activeUser}}</h2>
+      </button>
+    </div>
+    <div class="col-sm bg-dark m-3 p-3">
+      <h2>Deactive Users</h2>
+      <button type="button" class="btn btn-success">
+        <h2>{{deactiveUser}}</h2>
+      </button>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

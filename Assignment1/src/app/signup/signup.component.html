@@ -1,0 +1,224 @@
+<div class="container">
+  <div class="row">
+  </div>
+  <form id="myform" method='post' [formGroup]="signupForm">
+    <h1>SignUp</h1>
+
+    <div class="form-row">
+      <!-- Name feild -->
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">Name *</label>
+        <input type="text" class="form-control" id="name" formControlName="name">
+        <div class='error'
+          *ngIf="signupForm.get('name').invalid  && (signupForm.get('name').dirty || signupForm.get('name').touched)">
+          <div *ngIf="signupForm.get('name').hasError('required')">
+            * Name is required.
+          </div>
+          <div *ngIf="signupForm.get('name').hasError('minlength')">
+            * Length must be minimum 5
+          </div>
+          <div *ngIf="signupForm.get('name').hasError('maxlength')">
+            * Maximum 30 characters are allowed
+          </div>
+        </div>
+      </div>
+      <!-- Phone feild -->
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">Phone *</label>
+        <input type="text" class="form-control" id="phone" formControlName='phone'>
+        <div class='error'
+          *ngIf="signupForm.get('phone').invalid  && (signupForm.get('phone').dirty || signupForm.get('phone').touched)">
+          <div *ngIf="signupForm.get('phone').hasError('required')">
+            * Phone is required.
+          </div>
+          <div *ngIf="signupForm.get('phone').hasError('pattern')">
+            * Number can only start from 6,7,8,9 and length must be 10
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <!-- Email feild -->
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Email *</label>
+        <input type="email" class="form-control" id="email" formControlName='email'>
+        <div class='error'
+          *ngIf="signupForm.get('email').invalid  && (signupForm.get('email').dirty || signupForm.get('email').touched)">
+          <div *ngIf="signupForm.get('email').hasError('required')">
+            * Email is required.
+          </div>
+          <div *ngIf="signupForm.get('email').hasError('minlength')">
+            * Length must be minimum 6
+          </div>
+          <div *ngIf="signupForm.get('email').hasError('maxlength')">
+            * Maximum 30 characters are allowed
+          </div>
+          <div *ngIf="signupForm.get('email').hasError('pattern')">
+            * Please follow this format abc@gmail.com
+          </div>
+        </div>
+      </div>
+      <!-- Password feild -->
+      <div class="form-group col-md-3">
+        <label for="inputPassword4">Password *</label>
+        <input type="password" class="form-control" id="password" formControlName='password'>
+        <div class='error'
+          *ngIf="signupForm.get('password').invalid  && (signupForm.get('password').dirty || signupForm.get('password').touched)">
+          <div *ngIf="signupForm.get('password').hasError('required')">
+            * Password is required.
+          </div>
+          <div *ngIf="signupForm.get('password').hasError('minlength')">
+            * Length must be minimum 5
+          </div>
+          <div *ngIf="signupForm.get('password').hasError('maxlength')">
+            * Maximum 20 characters are allowed
+          </div>
+          <div *ngIf="signupForm.get('password').hasError('pattern')">
+            * length must be minimum 6 and maximum 10, first character must be an alphabet and last must be a digit
+          </div>
+        </div>
+      </div>
+      <!-- Confirm password -->
+      <div class="form-group col-md-3">
+        <label for="inputPassword4">Confirm Password *</label>
+        <input type="password" class="form-control" id="confirmPassword" formControlName='confirmPassword'>
+        <div class='error'
+          *ngIf="signupForm.get('confirmPassword').invalid  && (signupForm.get('confirmPassword').dirty || signupForm.get('confirmPassword').touched)">
+          <div *ngIf="signupForm.get('confirmPassword').hasError('required')">
+            * Confirm Password is required.
+          </div>
+<!--           <div *ngIf="signupForm.get('confirmPassword').hasError('minlength')">
+            * Length must be minimum 4
+          </div>
+          <div *ngIf="signupForm.get('confirmPassword').hasError('maxlength')">
+            * Maximum 20 characters are allowed
+          </div> -->
+          <div *ngIf="signupForm.get('confirmPassword').hasError('confirmedValidator')">Password and Confirm Password must be match.</div>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <!-- Date feild -->
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Date *</label>
+        <input type="date" class="form-control" id="date" formControlName='date'>
+        <div class='error'
+          *ngIf="signupForm.get('date').invalid  && (signupForm.get('date').dirty || signupForm.get('date').touched)">
+          <div *ngIf="signupForm.get('date').hasError('required')">
+            * Date is required.
+          </div>
+        </div>
+      </div>
+
+      <!-- Gender feild -->
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Gender *</label><br>
+        <input type="radio" id="male" name="gender" value="male" formControlName='gender'>
+        <label for="male"> Male </label>
+        <input type="radio" id="female" name="gender" value="female" formControlName='gender'>
+        <label for="female"> Female </label>
+        <div class='error'
+          *ngIf="signupForm.get('gender').invalid  && (signupForm.get('gender').dirty || signupForm.get('gender').touched)">
+          <div *ngIf="signupForm.get('gender').hasError('required')">
+            * Gender is required.
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="form-row">
+      <!-- Address1 feild -->
+      <div class="form-group col-md-6">
+        <label for="inputAddress">Address1 *</label>
+        <input type="text" class="form-control" id="inputAddress1" placeholder="Address Line1"
+          formControlName='address1'>
+        <div class='error'
+          *ngIf="signupForm.get('address1').invalid  && (signupForm.get('address1').dirty || signupForm.get('address1').touched)">
+          <div *ngIf="signupForm.get('address1').hasError('required')">
+            * Address1 is required.
+          </div>
+          <div *ngIf="signupForm.get('address1').hasError('minlength')">
+            * Length must be minimum 4
+          </div>
+          <div *ngIf="signupForm.get('address1').hasError('maxlength')">
+            * Maximum 30 characters are allowed
+          </div>
+        </div>
+      </div>
+
+      <!-- Address2 feild -->
+      <div class="form-group col-md-6">
+        <label for="inputAddress">Address2 *</label>
+        <input type="text" class="form-control" id="inputAddress2" placeholder="Address Line2"
+          formControlName='address2'>
+        <div class='error'
+          *ngIf="signupForm.get('address2').invalid  && (signupForm.get('address2').dirty || signupForm.get('address2').touched)">
+          <div *ngIf="signupForm.get('address2').hasError('required')">
+            * Address2 is required.
+          </div>
+          <div *ngIf="signupForm.get('address2').hasError('minlength')">
+            * Length must be minimum 4
+          </div>
+          <div *ngIf="signupForm.get('address2').hasError('maxlength')">
+            * Maximum 30 characters are allowed
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="form-row">
+      <!-- City feild -->
+      <div class="form-group col-md-6">
+        <input type="text" class="form-control" id="inputCity" placeholder="City" formControlName='city'>
+        <div class='error'
+          *ngIf="signupForm.get('city').invalid  && (signupForm.get('city').dirty || signupForm.get('city').touched)">
+          <div *ngIf="signupForm.get('city').hasError('required')">
+            * City is required.
+          </div>
+          <div *ngIf="signupForm.get('city').hasError('minlength')">
+            * Length must be minimum 4
+          </div>
+          <div *ngIf="signupForm.get('city').hasError('maxlength')">
+            * Maximum 20 characters are allowed
+          </div>
+        </div>
+      </div>
+
+      <!-- State feild -->
+      <div class="form-group col-md-4">
+        <select id="inputState" class="form-control" formControlName='state'>
+          <option selected>State</option>
+          <option>UP</option>
+          <option>HR</option>
+          <option>HP</option>
+        </select>
+        <div class='error'
+          *ngIf="signupForm.get('state').invalid  && (signupForm.get('state').dirty || signupForm.get('state').touched)">
+          <div *ngIf="signupForm.get('state').hasError('required')">
+            * State is required.
+          </div>
+        </div>
+      </div>
+
+      <!-- Zip feild -->
+      <div class="form-group col-md-2">
+        <input type="text" class="form-control" id="inputZip" placeholder="Zip" formControlName='zip'>
+        <div class='error'
+          *ngIf="signupForm.get('zip').invalid  && (signupForm.get('zip').dirty || signupForm.get('zip').touched)">
+          <div *ngIf="signupForm.get('zip').hasError('required')">
+            * Zip is required.
+          </div>
+          <div *ngIf="signupForm.get('zip').hasError('minlength')">
+            * Length must be minimum 4
+          </div>
+          <div *ngIf="signupForm.get('zip').hasError('maxlength')">
+            * Maximum 30 characters are allowed
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="submit()">Submit</button>
+    <a routerLink="/login"><button type="button" class="btn btn-secondary ml-2">Back</button></a>
+  </form>
+</div>

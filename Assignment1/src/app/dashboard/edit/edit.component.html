@@ -1,0 +1,244 @@
+<div class="container">
+    <div class="row">
+    </div>
+    <form id="myform" method='post' [formGroup]="editForm">
+      <h1>Edit Details</h1>
+  
+      <div class="form-row hidden" >
+        <!-- Phone feild -->
+        <div class="form-group col-md-12">
+          <label for="inputEmail4">Phone *</label>
+          <input type="text" class="form-control" id="phone0" formControlName='phone'>
+          <div class='error'
+            *ngIf="editForm.get('phone').invalid  && (editForm.get('phone').dirty || editForm.get('phone').touched)">
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <!-- Name feild -->
+        <div class="form-group col-md-12">
+          <label for="inputEmail4">Name *</label>
+          <input type="text" class="form-control" id="name" formControlName='name'>
+          <div class='error'
+            *ngIf="editForm.get('name').invalid  && (editForm.get('name').dirty || editForm.get('name').touched)">
+            <div *ngIf="editForm.get('name').hasError('required')">
+              * Name is required.
+            </div>
+            <div *ngIf="editForm.get('name').hasError('minlength')">
+              * Length must be minimum 5
+            </div>
+            <div *ngIf="editForm.get('name').hasError('maxlength')">
+              * Maximum 30 characters are allowed
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <!-- Email feild -->
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Email *</label>
+          <input type="email" class="form-control" id="email" formControlName='email' disabled>
+          <div class='error'
+            *ngIf="editForm.get('email').invalid  && (editForm.get('email').dirty || editForm.get('email').touched)">
+            <div *ngIf="editForm.get('email').hasError('required')">
+              * Email is required.
+            </div>
+            <div *ngIf="editForm.get('email').hasError('minlength')">
+              * Length must be minimum 6
+            </div>
+            <div *ngIf="editForm.get('email').hasError('maxlength')">
+              * Maximum 30 characters are allowed
+            </div>
+            <div *ngIf="editForm.get('email').hasError('pattern')">
+              * Please follow this patter abc@gmail.com
+            </div>
+          </div>
+        </div>
+        <!-- Phone feild -->
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Phone *</label>
+          <input type="text" class="form-control" id="phone1" formControlName='phone'>
+          <div class='error'
+            *ngIf="editForm.get('phone').invalid  && (editForm.get('phone').dirty || editForm.get('phone').touched)">
+            <div *ngIf="editForm.get('phone').hasError('required')">
+              * Phone is required.
+            </div>
+            <div *ngIf="editForm.get('phone').hasError('pattern')">
+              * Number can only start from 6,7,8,9 and length must be 10
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-row" id='{{hideFeilds}}'>
+        <!-- Old Password feild -->
+      <div class="form-group col-md-4">
+        <label for="inputPassword4">Old Password *</label>
+        <input type="password" class="form-control" id="oldPassword" formControlName='oldPassword'>
+        <div class='error'
+          *ngIf="editForm.get('oldPassword').invalid  && (editForm.get('oldPassword').dirty || editForm.get('oldPassword').touched)">
+          <div *ngIf="editForm.get('oldPassword').hasError('required')">
+            * Old Password is required.
+          </div>
+          <div *ngIf="editForm.get('oldPassword').hasError('pattern')">
+            * length must be minimum 6 and maximum 10, first character must be an alphabet and last must be a digit
+          </div>
+        </div>
+      </div>
+        <!-- Password feild -->
+      <div class="form-group col-md-4">
+        <label for="inputPassword4">New Password *</label>
+        <input type="password" class="form-control" id="password" formControlName='password'>
+        <div class='error'
+          *ngIf="editForm.get('password').invalid  && (editForm.get('password').dirty || editForm.get('password').touched)">
+          <div *ngIf="editForm.get('password').hasError('required')">
+            * New Password is required.
+          </div>
+          <div *ngIf="editForm.get('password').hasError('pattern')">
+            * length must be minimum 6 and maximum 10, first character must be an alphabet and last must be a digit
+          </div>
+        </div>
+      </div>
+        <div class="form-group col-md-4">
+          <label for="inputPassword4">Confirm Password *</label>
+          <input type="password" class="form-control" id="confirmPassword" formControlName='confirmPassword'>
+          <div class='error'
+            *ngIf="editForm.get('confirmPassword').invalid  && (editForm.get('confirmPassword').dirty || editForm.get('confirmPassword').touched)">
+            <div *ngIf="editForm.get('confirmPassword').hasError('required')">
+              * confirmPassword is required.
+            </div>
+            <div *ngIf="editForm.get('confirmPassword').hasError('minlength')">
+              * Length must be minimum 4
+            </div>
+            <div *ngIf="editForm.get('confirmPassword').hasError('maxlength')">
+              * Maximum 20 characters are allowed
+            </div>
+            <div *ngIf="editForm.get('confirmPassword').hasError('confirmedValidator')">Password and Confirm Password must be match.</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <!-- Date feild -->
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Date *</label>
+          <input type="date" class="form-control" id="date" formControlName='date'>
+          <div class='error'
+            *ngIf="editForm.get('date').invalid  && (editForm.get('date').dirty || editForm.get('date').touched)">
+            <div *ngIf="editForm.get('date').hasError('required')">
+              * Date is required.
+            </div>
+          </div>
+        </div>
+  
+        <!-- Gender feild -->
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Gender *</label><br>
+          <input type="radio" id="male" name="gender" value="male" formControlName='gender'>
+          <label for="male"> Male </label>
+          <input type="radio" id="female" name="gender" value="female" formControlName='gender'>
+          <label for="female"> Female </label>
+          <div class='error'
+            *ngIf="editForm.get('gender').invalid  && (editForm.get('gender').dirty || editForm.get('gender').touched)">
+            <div *ngIf="editForm.get('gender').hasError('required')">
+              * Gender is required.
+            </div>
+          </div>
+        </div>
+  
+      </div>
+      <div class="form-row">
+        <!-- Address1 feild -->
+        <div class="form-group col-md-6">
+          <label for="inputAddress">Address1 *</label>
+          <input type="text" class="form-control" id="inputAddress1" placeholder="Address Line1"
+            formControlName='address1'>
+          <div class='error'
+            *ngIf="editForm.get('address1').invalid  && (editForm.get('address1').dirty || editForm.get('address1').touched)">
+            <div *ngIf="editForm.get('address1').hasError('required')">
+              * Address1 is required.
+            </div>
+            <div *ngIf="editForm.get('address1').hasError('minlength')">
+              * Length must be minimum 4
+            </div>
+            <div *ngIf="editForm.get('address1').hasError('maxlength')">
+              * Maximum 30 characters are allowed
+            </div>
+          </div>
+        </div>
+  
+        <!-- Address2 feild -->
+        <div class="form-group col-md-6">
+          <label for="inputAddress">Address2 *</label>
+          <input type="text" class="form-control" id="inputAddress2" placeholder="Address Line2"
+            formControlName='address2'>
+          <div class='error'
+            *ngIf="editForm.get('address2').invalid  && (editForm.get('address2').dirty || editForm.get('address2').touched)">
+            <div *ngIf="editForm.get('address2').hasError('required')">
+              * Address2 is required.
+            </div>
+            <div *ngIf="editForm.get('address2').hasError('minlength')">
+              * Length must be minimum 4
+            </div>
+            <div *ngIf="editForm.get('address2').hasError('maxlength')">
+              * Maximum 30 characters are allowed
+            </div>
+          </div>
+        </div>
+  
+      </div>
+      <div class="form-row">
+        <!-- City feild -->
+        <div class="form-group col-md-6">
+          <input type="text" class="form-control" id="inputCity" placeholder="City" formControlName='city'>
+          <div class='error'
+            *ngIf="editForm.get('city').invalid  && (editForm.get('city').dirty || editForm.get('city').touched)">
+            <div *ngIf="editForm.get('city').hasError('required')">
+              * City is required.
+            </div>
+            <div *ngIf="editForm.get('city').hasError('minlength')">
+              * Length must be minimum 4
+            </div>
+            <div *ngIf="editForm.get('city').hasError('maxlength')">
+              * Maximum 20 characters are allowed
+            </div>
+          </div>
+        </div>
+  
+        <!-- State feild -->
+        <div class="form-group col-md-4">
+          <select id="inputState" class="form-control" formControlName='state'>
+            <option selected>State</option>
+            <option>UP</option>
+            <option>HR</option>
+            <option>HP</option>
+          </select>
+          <div class='error'
+            *ngIf="editForm.get('state').invalid  && (editForm.get('state').dirty || editForm.get('state').touched)">
+            <div *ngIf="editForm.get('state').hasError('required')">
+              * State is required.
+            </div>
+          </div>
+        </div>
+  
+        <!-- Zip feild -->
+        <div class="form-group col-md-2">
+          <input type="text" class="form-control" id="inputZip" placeholder="Zip" formControlName='zip'>
+          <div class='error'
+            *ngIf="editForm.get('zip').invalid  && (editForm.get('zip').dirty || editForm.get('zip').touched)">
+            <div *ngIf="editForm.get('zip').hasError('required')">
+              * Zip is required.
+            </div>
+            <div *ngIf="editForm.get('zip').hasError('minlength')">
+              * Length must be minimum 4
+            </div>
+            <div *ngIf="editForm.get('zip').hasError('maxlength')">
+              * Maximum 30 characters are allowed
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" id='{{hideFeilds}}' (click)="saveDetails()">Save</button>
+      <button type="submit" class="btn btn-primary {{hideFeilds}}" (click)="updateDetails()">update</button>
+      <a routerLink="{{routerlink}}"><button type="button" class="btn btn-secondary ml-2">Back</button></a>
+    </form>
+  </div>
+  
